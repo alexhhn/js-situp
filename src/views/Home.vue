@@ -1,18 +1,43 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <h1>Visma Situp</h1>
+    <SitupGrupper/>
+
+    <img class="visma-logo" alt="Vismalogo" src="../assets/visma-logo.png">
+
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import SitupGrupper from "@/components/SitupGrupper.vue"; // @ is an alias to /src
 
 @Component({
   components: {
-    HelloWorld
+    SitupGrupper
   }
 })
 export default class Home extends Vue {}
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="less">
+h1 {
+  margin: 20px 0 50px 0;
+}
+.visma-logo {
+  margin-top: 80px;
+  width: 100px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
