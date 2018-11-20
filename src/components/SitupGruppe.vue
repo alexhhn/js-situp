@@ -5,13 +5,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
 
-@Component
-export default class SitupGruppe extends Vue {
-  @Prop() private gruppeNavn!: string;
-}
+<script>
+export default {
+  props: "gruppeNavn"
+};
 </script>
 
 <style scoped lang="less">

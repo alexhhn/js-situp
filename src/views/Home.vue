@@ -8,16 +8,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+<script>
 import SitupGrupper from "@/components/SitupGrupper.vue"; // @ is an alias to /src
 
-@Component({
+export default {
   components: {
     SitupGrupper
   }
-})
-export default class Home extends Vue {}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
