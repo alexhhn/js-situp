@@ -1,27 +1,25 @@
 <template>
-  <div class="situp-group">
-    <img class="ikon" alt="ikon" src="../assets/football-ikon.png">
-        <h2>{{gruppeNavn}}</h2>
-  </div>
+    <div class="situp-gruppe">
+        <img class="ikon" :src="gruppe.imgSrc"/>
+        <h2>{{gruppe.name}}</h2>
+    </div>
 </template>
-
 
 <script>
 export default {
-  props: "gruppeNavn"
+  props: {
+    gruppe: Object
+  }
 };
 </script>
 
 <style scoped lang="less">
+.situp-gruppe {
+  min-width: 200px;
+  padding: 20px;
+}
+
 .ikon {
   width: 100px;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-
-a {
-  color: #42b983;
 }
 </style>
