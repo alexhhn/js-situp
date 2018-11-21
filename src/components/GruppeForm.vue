@@ -1,12 +1,16 @@
 <template>
-<!-- the submit event will no longer reload the page -->
+  <!-- the submit event will no longer reload the page -->
 
-<form v-on:submit.prevent="onSubmit(name, imgSrc)">
-    <input v-model="name" type="text" name="title" value="" placeholder="Gruppenavn">
+  <form v-on:submit.prevent="onSubmit(name, imgSrc);">
+    <input
+      v-model="name"
+      type="text"
+      name="title"
+      value=""
+      placeholder="Gruppenavn"
+    />
     <button type="submit" name="button">Legg til Gruppe</button>
-</form>
-
-
+  </form>
 </template>
 <script>
 import FotballImg from "@/assets/football-ikon.png";
