@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import axios from "axios";
+
+const instance = axios.create();
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -34,5 +37,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    ADD_GRUPPE: (context: any, payload: {name: string, url: string}) => {
+      context.commit("ADD_GRUPPE", payload);
+    },
+    UPDATE_URL: (context: any, payload: {name: string, url: string}) =>  {
+      return instance.get(payload.url).then(() => {
+        context.commit("UPDATE_URL", payload);
+      });
+    }
   }
 });

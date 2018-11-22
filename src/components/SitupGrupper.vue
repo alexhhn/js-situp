@@ -27,7 +27,11 @@ export default {
   },
   methods: {
     addGruppe(gruppeName, gruppeImgSrc) {
-      this.$store.commit("ADD_GRUPPE", { name: gruppeName, url: gruppeImgSrc });
+      this.$store
+        .dispatch("ADD_GRUPPE", { name: gruppeName, url: gruppeImgSrc })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };

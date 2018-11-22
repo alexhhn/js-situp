@@ -26,10 +26,14 @@ export default {
   methods: {
     updateUrl() {
       this.$data.showEdit = false;
-      this.$store.commit("UPDATE_URL", {
-        id: this.$props.gruppe.id,
-        url: this.$data.newUrl
-      });
+      this.$store
+        .dispatch("UPDATE_URL", {
+          id: this.$props.gruppe.id,
+          url: this.$data.newUrl
+        })
+        .catch(err => {
+          alert(err);
+        });
     }
   }
 };
