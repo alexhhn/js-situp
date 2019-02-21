@@ -1,13 +1,9 @@
 <template>
   <div class="situp-gruppe">
-    <img class="ikon" :src="gruppe.imgSrc" />
+    <img class="ikon" :src="gruppe.url">
     <h2 v-on:click="showEdit = !showEdit;">{{ gruppe.name }}</h2>
     <div v-if="showEdit">
-      <input
-        v-on:keyup.enter="updateUrl"
-        v-model="newUrl"
-        placeholder="New url :D"
-      />
+      <input v-on:keyup.enter="updateUrl" v-model="newUrl" placeholder="New url :D">
     </div>
   </div>
 </template>
@@ -28,7 +24,7 @@ export default {
       this.$data.showEdit = false;
       this.$store
         .dispatch("UPDATE_URL", {
-          id: this.$props.gruppe.id,
+          name: this.$props.gruppe.name,
           url: this.$data.newUrl
         })
         .catch(err => {

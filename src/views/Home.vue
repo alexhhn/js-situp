@@ -1,10 +1,9 @@
 <template>
   <div class="home">
-    <h1>Visma Sitfup</h1>
+    <h1>Visma Situp</h1>
     <SitupGrupper/>
 
     <img class="visma-logo" alt="Vismalogo" src="../assets/visma-logo.png">
-
   </div>
 </template>
 

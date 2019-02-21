@@ -1,14 +1,7 @@
 <template>
   <!-- the submit event will no longer reload the page -->
-
-  <form v-on:submit.prevent="onSubmit(name, imgSrc);">
-    <input
-      v-model="name"
-      type="text"
-      name="title"
-      value=""
-      placeholder="Gruppenavn"
-    />
+  <form v-on:submit.prevent="onSubmit(name, url);">
+    <input v-model="name" type="text" name="title" value placeholder="Gruppenavn">
     <button type="submit" name="button">Legg til Gruppe</button>
   </form>
 </template>
@@ -20,12 +13,12 @@ export default {
   data() {
     return {
       name: "",
-      imgSrc: FotballImg
+      url: FotballImg
     };
   },
   methods: {
-    onSubmit(name, imgSrc) {
-      this.$emit("onSubmit", name, imgSrc);
+    onSubmit(name, url) {
+      this.$emit("onSubmit", name, url);
     }
   }
 };

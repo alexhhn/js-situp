@@ -1,13 +1,9 @@
 <template>
   <div>
     <div class="situp-grupper-container">
-      <SitupGruppe
-        v-for="gruppe in grupper"
-        :gruppe="gruppe"
-        :key="gruppe.id"
-      />
+      <SitupGruppe v-for="gruppe in grupper" :gruppe="gruppe" :key="gruppe.name"/>
     </div>
-    <gruppe-form @onSubmit="addGruppe" />
+    <gruppe-form @onSubmit="addGruppe"/>
   </div>
 </template>
 
