@@ -16,7 +16,7 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    ADD_GRUPPE: (state: any, { name, url }: { name: string; url: string }) => {
+    addGruppe: (state: any, { name, url }: { name: string; url: string }) => {
       let id: number = 0;
       if (state.grupper.length !== 0) {
         id = state.grupper[state.grupper.length - 1].id + 1;
@@ -27,7 +27,7 @@ export default new Vuex.Store({
         url: url,
       });
     },
-    UPDATE_URL: (state: any, { id, url }: { id: number; url: string }) => {
+    updateUrl: (state: any, { id, url }: { id: number; url: string }) => {
       let gruppe = state.grupper.find((gruppe: any) => {
         return gruppe.id === id;
       });
@@ -38,11 +38,11 @@ export default new Vuex.Store({
   },
   actions: {
     ADD_GRUPPE: (context: any, payload: { name: string; url: string }) => {
-      context.commit('ADD_GRUPPE', payload);
+      context.commit('addGruppe', payload);
     },
     UPDATE_URL: (context: any, payload: { name: string; url: string }) => {
       return instance.get(payload.url).then(() => {
-        context.commit('UPDATE_URL', payload);
+        context.commit('updateUrl', payload);
       });
     },
   },
