@@ -1,37 +1,48 @@
 <template>
   <div>
     <div class="situp-grupper-container">
-      <SitupGruppe
-        v-for="gruppe in grupper"
-        :gruppe="gruppe"
-        :key="gruppe.id"
-      />
+      <SitupGruppe v-for="gruppe in grupper" :gruppe="gruppe" :key="gruppe.name"/>
     </div>
-    <gruppe-form @onSubmit="addGruppe" />
+    <gruppe-form @onSubmit="addGruppe"/>
   </div>
 </template>
 
 <script>
 import SitupGruppe from "./SitupGruppe";
 import GruppeForm from "@/components/GruppeForm";
+import GruppeService from "@/services/GruppeService";
 
 export default {
   components: {
     SitupGruppe,
     GruppeForm
   },
+
   computed: {
     grupper() {
       return this.$store.getters.getGrupper;
     }
   },
+
+  mounted() {
+    this.getGrupper();
+  },
+
   methods: {
-    addGruppe(gruppeName, gruppeImgSrc) {
-      this.$store
+    async addGruppe(gruppeName, gruppeImgSrc) {
+      await this.$store
         .dispatch("ADD_GRUPPE", { name: gruppeName, url: gruppeImgSrc })
         .catch(err => {
           console.log(err);
         });
+      this.getGrupper();
+    },
+
+    getGrupper() {
+      console.log("getting grupp");
+      this.$store.dispatch("FETCH_GRUPPE").catch(err => {
+        console.log(err);
+      });
     }
   }
 };

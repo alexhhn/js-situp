@@ -1,15 +1,16 @@
 <template>
   <div class="home">
-    <h1>Visma Sitfup</h1>
+    <h1>Visma Situp</h1>
     <SitupGrupper/>
 
     <img class="visma-logo" alt="Vismalogo" src="../assets/visma-logo.png">
-
   </div>
 </template>
 
 <script>
-import SitupGrupper from "@/components/SitupGrupper.vue"; // @ is an alias to /src
+import SitupGrupper from "@/components/SitupGrupper.vue";
+import axios from "axios";
+// @ is an alias to /src
 
 export default {
   components: {
